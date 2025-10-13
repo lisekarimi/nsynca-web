@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Nsynca Documentation - Installation, usage, and complete guide">
+    <title>Documentation - Nsynca</title>
+    <link rel="stylesheet" href="/assets/css/style.css">
+    <link rel="stylesheet" href="/assets/css/docs.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container">
+            <div class="nav-content">
+                <div class="logo">
+                    <a href="/">
+                        <span class="logo-icon">🔄</span>
+                        <span class="logo-text">Nsynca</span>
+                    </a>
+                </div>
+                <button class="mobile-menu-toggle" aria-label="Toggle menu">
+                    <span>☰</span>
+                </button>
+                <div class="nav-links">
+                    <a href="/">Home</a>
+                    <a href="https://www.notion.so/lisekarimi/Project-Management-266a61e34bdf8088a400c6d390aa1321?source=copy_link" target="_blank">Demo</a>
+                    <a href="https://github.com/lisekarimi/nsynca" target="_blank" class="btn-github">GitHub</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <div class="docs-container">
+        <aside class="sidebar">
+            <button class="sidebar-toggle">📋 Menu</button>
+            <nav class="docs-nav">
+                <a href="#overview">Overview</a>
+                <a href="#who-for">Who Is This For</a>
+                <a href="#features">Features</a>
+                <a href="#prerequisites">Prerequisites</a>
+                <a href="#installation">Installation</a>
+                <a href="#usage">Usage</a>
+                <a href="#logs">Logs & Monitoring</a>
+                <a href="#development">Development</a>
+                <a href="#changelog">Changelog</a>
+            </nav>
+        </aside>
+
+        <main class="docs-content">
+            <section id="overview">
+                <h1>Documentation</h1>
+                <p class="lead">A lightweight Python toolkit created by an IT project manager for IT project managers who need to track and manage multiple projects at a high level.</p>
+            </section>
+
+            <section id="who-for">
+                <h2>Who Is This For?</h2>
+                <div class="info-box">
+                    <p><strong>IT project managers</strong> with a technical background who manage multiple projects and want automated visibility into:</p>
+                    <ul>
+                        <li>Project status and progress</li>
+                        <li>Development and production deployments</li>
+                        <li>Task completion rates</li>
+                        <li>Service subscriptions and renewal dates</li>
+                        <li>Version tracking across environments</li>
+                    </ul>
+                </div>
+
+                <h3>Technical Requirements</h3>
+                <p>This tool requires a technical background to set up and run. You should be comfortable with:</p>
+                <ul>
+                    <li>Python environment setup</li>
+                    <li>Command line operations</li>
+                    <li>Environment variable configuration</li>
+                    <li>Basic Notion API concepts</li>
+                </ul>
+            </section>
+
+            <section id="features">
+                <h2>What Nsynca Does</h2>
+                <p>Nsynca provides modular updaters for high-level project tracking:</p>
+
+                <h3>Project Dashboard Updates</h3>
+                <p>For each project in your portfolio, Nsynca automatically updates:</p>
+                <ul>
+                    <li>Latest deployment version per environment</li>
+                    <li>Last deployment date per environment</li>
+                    <li>Total releases per environment</li>
+                    <li>Task totals and completed counts</li>
+                    <li>Overall project completion status</li>
+                </ul>
+
+                <h3>Service Management</h3>
+                <p>Track all paid services across your projects — from cloud platforms like GCP and AWS to AI tools such as OpenAI, Anthropic, and other subscriptions.</p>
+                <ul>
+                    <li>Next Due Date calculation (monthly/yearly billing)</li>
+                    <li>Status tracking: ✅ Active / ⏳ Coming Soon / 🟠 Overdue / 🛑 Cancelled</li>
+                    <li>Automatic billing record creation</li>
+                    <li>Subscription cost tracking</li>
+                </ul>
+            </section>
+
+            <section id="prerequisites">
+                <h2>Prerequisites</h2>
+
+                <h3>Notion Setup</h3>
+                <ol>
+                    <li>Create an <a href="https://www.notion.so/profile/integrations" target="_blank">integration in Notion</a></li>
+                    <li>Share database access: Open each database → ••• → Connections → Add your integration</li>
+                </ol>
+
+                <h3>Technical Requirements</h3>
+                <ul>
+                    <li>Python 3.11.x (not 3.12+)</li>
+                    <li><a href="https://docs.astral.sh/uv/getting-started/installation/" target="_blank">uv package manager</a></li>
+                    <li><a href="https://www.docker.com/products/docker-desktop/" target="_blank">Docker Desktop</a></li>
+                    <li>Make:
+                        <ul>
+                            <li>Windows: <code>winget install GnuWin32.Make</code></li>
+                            <li>macOS: <code>brew install make</code></li>
+                            <li>Linux: <code>sudo apt install make</code></li>
+                        </ul>
+                    </li>
+                </ul>
+            </section>
+
+            <section id="installation">
+                <h2>Installation</h2>
+
+                <h3>1. Clone the Repository</h3>
+                <div class="code-block">
+                    <pre><code>git clone https://github.com/lisekarimi/nsynca.git
+cd nsynca</code></pre>
+                </div>
+
+                <h3>2. Set Up Environment</h3>
+                <ul>
+                    <li>Copy <code>.env.example</code> to <code>.env</code></li>
+                    <li>Fill in your Notion integration token and database IDs</li>
+                    <li>Install dependencies:</li>
+                </ul>
+                <div class="code-block">
+                    <pre><code>uv sync</code></pre>
+                </div>
+            </section>
+
+            <section id="usage">
+                <h2>Usage</h2>
+
+                <h3>Graphical User Interface</h3>
+                <p>For quick, one-click updates:</p>
+                <div class="code-block">
+                    <pre><code>make gui</code></pre>
+                </div>
+
+                <h3>Command Line Interface with Docker</h3>
+                <p>For consistent execution across environments:</p>
+                <div class="code-block">
+                    <pre><code>make build
+make run
+make deploy
+make task
+make service
+marle charge</code></pre>
+                </div>
+
+                <h3>Windows Executable</h3>
+                <p>Build standalone .exe for team distribution:</p>
+                <div class="code-block">
+                    <pre><code>make build-exe    # Generate spec file
+make compile-exe  # Create executable</code></pre>
+                </div>
+                <p>Find executable in <code>dist/</code> folder.</p>
+
+                <h3>Automation</h3>
+                <p>Schedule Nsynca to run automatically:</p>
+                <ul>
+                    <li><strong>Windows:</strong> Task Scheduler </li>
+                    <li><strong>macOS/Linux:</strong> cron jobs</li>
+                </ul>
+                <div class="info-box info">
+                    <strong>Recommended:</strong> Run daily to keep project dashboards current for management reviews.
+                </div>
+            </section>
+
+            <section id="logs">
+                <h2>Logs & Monitoring</h2>
+
+                <h3>Log Locations</h3>
+                <ul>
+                    <li><strong>Development:</strong> <code>logs/</code> in project root</li>
+                    <li><strong>Executable:</strong> <code>dist/logs/</code> next to the .exe file</li>
+                </ul>
+
+                <h3>Viewing Logs</h3>
+                <ul>
+                    <li>Open the GUI to browse logs from previous runs</li>
+                    <li>Filter by month, update type, or status (success/failed)</li>
+                    <li>Track which projects were updated and when</li>
+                    <li>Identify any sync issues that need attention</li>
+                </ul>
+            </section>
+
+            <section id="development">
+                <h2>Development & Maintenance</h2>
+
+                <h3>Code Quality</h3>
+                <div class="code-block">
+                    <pre><code>make lint        # Check code quality
+make fix         # Auto-fix formatting issues
+make install-hooks  # Install pre-commit hooks</code></pre>
+                </div>
+
+                <h3>Security</h3>
+                <ul>
+                    <li>Gitleaks integration for secret scanning</li>
+                    <li>Automated security checks via GitHub Actions</li>
+                </ul>
+
+                <h3>Customization</h3>
+                <p>The toolkit is modular and extensible. IT managers with Python experience can:</p>
+                <ul>
+                    <li>Add custom updaters for additional databases</li>
+                    <li>Modify field mappings to match their Notion setup</li>
+                    <li>Extend logging and reporting capabilities</li>
+                    <li>Integrate with other project management tools</li>
+                </ul>
+            </section>
+
+            <section id="changelog">
+                <h2>Changelog</h2>
+                <p>See the full update history on <a href="https://github.com/lisekarimi/nsynca/blob/main/CHANGELOG.md" target="_blank">GitHub →</a></p>
+            </section>
+
+        </main>
+    </div>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-left">
+                    <div class="logo">
+                        <span class="logo-icon">🔄</span>
+                        <span class="logo-text">Nsynca</span>
+                    </div>
+                    <p>Created by an IT Project Manager<br>for IT Project Managers</p>
+                </div>
+                <div class="footer-links">
+                    <a href="/">Home</a>
+                    <a href="https://github.com/lisekarimi/nsynca" target="_blank">GitHub</a>
+                    <a href="https://www.notion.so/lisekarimi/Project-Management-266a61e34bdf8088a400c6d390aa1321?source=copy_link" target="_blank">Demo</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Nsynca Project | MIT License</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="/assets/js/script.js"></script>
+    <script src="/assets/js/chatbot.js"></script>
+</body>
+</html>

@@ -1,0 +1,23 @@
+# Git files
+.git
+.gitignore
+.gitattributes
+
+# Docker files
+Dockerfile
+.dockerignore
+
+# OS files
+.DS_Store
+Thumbs.db
+
+
+# Development files
+.vscode
+.idea
+*.log
+*.tmp
+Makefile
+
+# Docs
+README.md
