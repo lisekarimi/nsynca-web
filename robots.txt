@@ -1,0 +1,12 @@
+User-agent: *
+Allow: /
+
+# Sitemap location
+Sitemap: https://nsynca.com/sitemap.xml
+
+# Crawl delay (optional - be respectful to search engines)
+Crawl-delay: 1
+
+# Disallow specific paths if any (none currently)
+# Disallow: /admin/
+# Disallow: /private/

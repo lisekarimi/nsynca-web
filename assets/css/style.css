@@ -426,3 +426,32 @@ p, li, a {
         padding: 2rem 0;
     }
 }
+
+/* ===== PORTFOLIO LINK SECTION ===== */
+.portfolio-link {
+    background-color: var(--bg-secondary);
+    border-top: 1px solid var(--border-color);
+    padding: 2rem 0;
+}
+
+.portfolio-content {
+    text-align: center;
+}
+
+.portfolio-content p {
+    font-size: 1.1rem;
+    color: var(--text-secondary);
+    margin: 0;
+}
+
+.portfolio-content a {
+    color: var(--primary-color);
+    text-decoration: none;
+    font-weight: 600;
+    transition: var(--transition);
+}
+
+.portfolio-content a:hover {
+    color: var(--primary-dark);
+    text-decoration: underline;
+}
